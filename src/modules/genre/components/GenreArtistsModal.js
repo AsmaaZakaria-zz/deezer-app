@@ -1,20 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Button, Icon, Modal } from "semantic-ui-react";
+import { history } from "./../../../history";
 import GenreArtists from "./GenreArtists";
 
 const GenreArtistsModal = (props) => (
-    <Modal open={props.open}>
+    <Modal open={true}>
         <Modal.Header>Genrs Artists</Modal.Header>
         <Modal.Content scrolling>
-            <GenreArtists id={props.genre.id} />
+            <GenreArtists id={props.match.params.id} />
         </Modal.Content>
         <Modal.Actions>
-            <Button primary onClick={props.onClose}>
+            <Button primary onClick={() => history.goBack()}>
                 Close <Icon name="close" />
             </Button>
         </Modal.Actions>
     </Modal>
 );
 
-export default connect()(GenreArtistsModal);
+export default GenreArtistsModal;

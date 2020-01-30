@@ -18,7 +18,7 @@ const mapDispatchToProps = {
 const GenreArtistsList = (props) => (
     <Container>
         <h1>Genre Artists List</h1>
-        <GenreArtists {...props} />
+        <GenreArtists params={props.match.params} />
         <footer>
             <Button onClick={() => history.goBack()}>Back</Button>
         </footer>

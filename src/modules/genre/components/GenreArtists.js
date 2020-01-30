@@ -15,10 +15,10 @@ const mapDispatchToProps = {
 };
 
 const GenreArtists = (props) => {
-    const { fetchGenreArtists, match, artists } = props;
+    const { fetchGenreArtists, params, artists } = props;
 
     useEffect(() => {
-        fetchGenreArtists(props.id || match.params.id);
+        fetchGenreArtists(props.id !== undefined ? props.id : params.id);
         // eslint-disable-next-line
     }, []);
 

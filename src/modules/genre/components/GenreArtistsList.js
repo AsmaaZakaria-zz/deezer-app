@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Container, Item } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import { history } from "./../../../history";
 import { fetchGenreArtists } from "./../actions/fetchGenreArtists";
-import Loader from "./../../../components/Loader";
+import GenreArtists from "./GenreArtists";
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,33 +15,14 @@ const mapDispatchToProps = {
     fetchGenreArtists,
 };
 
-const GenreArtistsList = (props) => {
-    const { fetchGenreArtists, match, artists } = props;
-
-    useEffect(() => {
-        fetchGenreArtists(props.id || match.params.id);
-        // eslint-disable-next-line
-    }, []);
-
-    if (!artists.length) {
-        return <Loader />;
-    }
-
-    return (
-        <Container>
-            <h1>GenreArtistsList</h1>
-            <Item.Group>
-                {artists.map((artist) => (
-                    <Item key={artist.id}>
-                        <Item.Image size="tiny" src={artist.picture_medium} />
-                        <Item.Content verticalAlign="middle">
-                            <Item.Header>{artist.name}</Item.Header>
-                        </Item.Content>
-                    </Item>
-                ))}
-            </Item.Group>
-        </Container>
-    );
-};
+const GenreArtistsList = (props) => (
+    <Container>
+        <h1>Genre Artists List</h1>
+        <GenreArtists {...props} />
+        <footer>
+            <Button onClick={() => history.goBack()}>Back</Button>
+        </footer>
+    </Container>
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenreArtistsList);

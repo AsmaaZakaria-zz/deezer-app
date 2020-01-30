@@ -1,13 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button, Menu } from "semantic-ui-react";
+import styled from "styled-components";
+import Logo from "../logo.png";
 import { userLogout } from "./../modules/user/actions";
 
-const mapStateToProps = (state) => {
-    return {
-        currentUser: state.user.user,
-    };
-};
+const StyledMenu = styled(Menu)`
+    background-color: #3c3d47 !important;
+    color: #d35656;
+`;
+
+const mapStateToProps = (state) => ({
+    currentUser: state.user.user,
+});
 
 const mapDispatchToProps = {
     userLogout,
@@ -15,18 +20,33 @@ const mapDispatchToProps = {
 
 const Header = (props) => {
     return (
-        <Menu size="small">
-            <Menu.Item name="Deezer" />
+        <StyledMenu size="big" secondary>
+            <Menu.Item>
+                <img src={Logo} alt="Deezer Logo" />
+            </Menu.Item>
 
             <Menu.Menu position="right">
-                <Menu.Item>{props.currentUser && props.currentUser.name}</Menu.Item>
+                {props.currentUser && (
+                    <React.Fragment>
+                        <Menu.Item style={{ "font-size": "20px", color: "#d35656" }}>
+                            {props.currentUser.name}
+                        </Menu.Item>
+                        <Menu.Item>
+                            <img
+                                src={props.currentUser.picture_small}
+                                alt="user img"
+                                style={{ "border-radius": "50%" }}
+                            />
+                        </Menu.Item>
+                    </React.Fragment>
+                )}
                 <Menu.Item>
-                    <Button primary onClick={props.userLogout}>
+                    <Button inverted onClick={props.userLogout}>
                         Logout
                     </Button>
                 </Menu.Item>
             </Menu.Menu>
-        </Menu>
+        </StyledMenu>
     );
 };
 

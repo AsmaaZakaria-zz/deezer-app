@@ -2,20 +2,18 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
+import Header from "./Header";
+import WelcomePage from "./WelcomePage";
 import GenresList from "../modules/genre/components/GenresList";
 import GenreArtistsList from "../modules/genre/components/GenreArtistsList";
-import WelcomePage from "./WelcomePage";
-import Header from "./Header";
 import GenreArtistsModal from "../modules/genre/components/GenreArtistsModal";
 
-const mapStateToProps = (state) => {
-    return {
-        isSignedIn: state.user.isSignedIn,
-    };
-};
+const mapStateToProps = (state) => ({
+    isSignedIn: state.user.isSignedIn,
+});
 
 const App = (props) => {
-    const [previousLocation, setPrevLocation] = useState(props.location);
+    const [prevLocation, setPrevLocation] = useState(props.location);
     const { location } = props;
 
     useEffect(() => {
@@ -25,12 +23,12 @@ const App = (props) => {
     }, [location]);
 
     const isModal =
-        location.state && location.state.modal && previousLocation !== location;
+        location.state && location.state.modal && prevLocation !== location;
 
     return (
         <div>
             {props.isSignedIn && <Header />}
-            <Switch location={isModal ? previousLocation : location}>
+            <Switch location={isModal ? prevLocation : location}>
                 {/* PUBLIC ROUTE */}
                 <Route exact path="/" component={WelcomePage} />
                 {/* PRIVATE ROUTES */}

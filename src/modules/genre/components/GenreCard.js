@@ -1,6 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
+import styled from "styled-components";
+
+const StyledCard = styled(Card)`
+    &:hover {
+        -webkit-box-shadow: -1px 10px 21px -4px rgba(0, 0, 0, 0.32);
+        -moz-box-shadow: -1px 10px 21px -4px rgba(0, 0, 0, 0.32);
+        box-shadow: -1px 10px 21px -4px rgba(0, 0, 0, 0.32);
+    }
+    .content {
+        &:hover {
+            background-color: #f9d5bb;
+            font-size: 17px;
+        }
+    }
+`;
 
 const GenreCard = ({ genre, ...props }) => (
     <React.Fragment>
@@ -10,7 +25,7 @@ const GenreCard = ({ genre, ...props }) => (
                 state: { modal: true },
             }}
         >
-            <Card>
+            <StyledCard>
                 <Image src={genre.picture_medium} wrapped ui={false} />
                 <Card.Content>
                     <Card.Header>{genre.name}</Card.Header>
@@ -18,7 +33,7 @@ const GenreCard = ({ genre, ...props }) => (
                 <Card.Content extra>
                     <Link to={`/genre/${genre.id}/artists`}>Show Artists</Link>
                 </Card.Content>
-            </Card>
+            </StyledCard>
         </Link>
     </React.Fragment>
 );

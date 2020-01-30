@@ -18,7 +18,7 @@ const GenreArtistsList = (props) => {
     const { fetchGenreArtists, match, artists } = props;
 
     useEffect(() => {
-        fetchGenreArtists(match.params.id);
+        fetchGenreArtists(props.id || match.params.id);
         // eslint-disable-next-line
     }, []);
 

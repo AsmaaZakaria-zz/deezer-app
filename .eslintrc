@@ -1,10 +1,13 @@
 {
-    "extends": "react-app",
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-    },
-    "rules": {
-      "no-console": "warn",
-    }
+  "extends": "react-app",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+  },
+  "rules": {
+    "no-console": "warn",
+  },
+  "globals": {
+    "cy": true,
+  }
 }

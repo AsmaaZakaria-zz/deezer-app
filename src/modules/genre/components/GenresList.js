@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Container, Grid } from "semantic-ui-react";
 import GenreCard from "./GenreCard";
+import Header from "./../../../components/Header";
 import Loader from "./../../../components/Loader";
 import { fetchGenres } from "./../actions/fetchGenres";
 
-const mapStateToProps = (state) => {
-    return {
-        genres: state.genre.genres,
-    };
-};
+const mapStateToProps = (state) => ({
+    genres: state.genre.genres,
+});
 
 const mapDispatchToProps = {
     fetchGenres,
@@ -35,7 +34,7 @@ const GenresList = (props) => {
 
     return (
         <Container>
-            <h1>Genres List</h1>
+            <Header header="Genres List" />
             <Grid>{renderGenreList()}</Grid>
         </Container>
     );

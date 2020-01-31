@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import Header from "./Header";
+import NavMenu from "./NavMenu";
 import WelcomePage from "./WelcomePage";
 import GenresList from "../modules/genre/components/GenresList";
 import GenreArtistsList from "../modules/genre/components/GenreArtistsList";
 import GenreArtistsModal from "../modules/genre/components/GenreArtistsModal";
 
 const mapStateToProps = (state) => ({
-    isSignedIn: state.user.isSignedIn,
+    currentUser: state.user,
 });
 
 const App = (props) => {
@@ -27,7 +27,9 @@ const App = (props) => {
 
     return (
         <div>
-            {props.isSignedIn && <Header />}
+            {props.currentUser.isSignedIn && props.currentUser.user && (
+                <NavMenu currentUser={props.currentUser.user} />
+            )}
             <Switch location={isModal ? prevLocation : location}>
                 {/* PUBLIC ROUTE */}
                 <Route exact path="/" component={WelcomePage} />

@@ -10,10 +10,14 @@ const StyledContainer = styled(Container)`
     line-height: 80px;
 `;
 
+const mapDispatchToProps = {
+    userLogin,
+};
+
 const WelcomePage = (props) => {
     return (
         <StyledContainer>
-            <Header style={{ "line-height": "50px" }}>
+            <Header style={{ "line-height": "100px" }}>
                 <Header.Content style={{ "font-size": "4rem" }}>
                     Hello there :)
                     <Header.Subheader style={{ "font-size": "2rem" }}>
@@ -21,11 +25,16 @@ const WelcomePage = (props) => {
                     </Header.Subheader>
                 </Header.Content>
             </Header>
-            <Button inverted color="blue" onClick={props.userLogin}>
+            <Button
+                inverted
+                color="blue"
+                onClick={props.userLogin}
+                style={{ width: "30%" }}
+            >
                 Login
             </Button>
         </StyledContainer>
     );
 };
 
-export default connect(null, { userLogin })(WelcomePage);
+export default connect(null, mapDispatchToProps)(WelcomePage);

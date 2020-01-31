@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Container, Button } from "semantic-ui-react";
 import styled from "styled-components";
 import { history } from "./../../../history";
+import Header from "./../../../components/Header";
 import { fetchGenreArtists } from "./../actions/fetchGenreArtists";
 import GenreArtists from "./GenreArtists";
 
@@ -12,7 +13,7 @@ const StyledBtn = styled(Button)`
     right: 20px;
 `;
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     artists: state.genre.genreArtists,
 });
 
@@ -22,7 +23,7 @@ const mapDispatchToProps = {
 
 const GenreArtistsList = (props) => (
     <Container>
-        <h1>Genre Artists List</h1>
+        <Header header="Genre Artists List" />
         <GenreArtists params={props.match.params} />
         <footer>
             <StyledBtn inverted color="blue" onClick={() => history.goBack()}>

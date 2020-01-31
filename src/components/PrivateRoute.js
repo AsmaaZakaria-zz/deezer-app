@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import Loader from "./Loader";
 
 const mapStateToProps = (state) => ({
     user: state.user,
@@ -11,7 +12,7 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
         {...rest}
         render={(props) => {
             if (user.loadingSignIn) {
-                return <h3>Loading...</h3>;
+                return <Loader />;
             } else if (!user.isSignedIn) {
                 return <Redirect to="/" />;
             } else {
@@ -21,4 +22,4 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
     />
 );
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps, {})(PrivateRoute);

@@ -13,27 +13,23 @@ DZ.init({
     channelUrl: URL,
 });
 
-export const userLogin = () => async (dispatch) => {
+export const userLogin = () => (dispatch) => {
     DZ.login(
         (response) => {
-            if (response.authResponse) {
+            if (response.authResponse.accessToken) {
                 DZ.api("/user/me", (user) => {
-                    dispatch({
-                        type: LOG_IN_SUCCESS,
-                        payload: user,
-                    });
+                    dispatch({ type: LOG_IN_SUCCESS, payload: user });
                     history.push("/genre");
                 });
             } else {
                 dispatch({ type: LOG_IN_FAILURE });
             }
         },
-        { perms: "basic_access,email" }
+        { perms: "basic_access" }
     );
 };
 
-export const userLogout = () => async (dispatch) => {
+export const userLogout = () => (dispatch) => {
     DZ.logout();
     dispatch({ type: LOG_OUT });
-    history.push("/");
 };

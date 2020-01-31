@@ -7,7 +7,7 @@ import {
 
 const INITIAL_STATE = {
     user: null,
-    isSignedIn: null,
+    isSignedIn: false,
     loadingSignIn: false,
 };
 

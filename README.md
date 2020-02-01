@@ -1,24 +1,43 @@
 # Deezer App
 
+React-Redux app using Deezer-API
+
+-   [Tools](#tools)
+-   [Features](#features)
+-   [Getting started](#getting-started)
+-   [Deploy](#deploy)
+-   [Tests](#start-tests)
+
 ## Tools:
 
 -   create-react-app
--   react-router
--   redux, react-redux
--   Semantic-ui react
+-   react-router-dom (navigation)
+-   redux, react-redux (state management)
+-   Semantic-ui react (css framework)
 -   styled-components
 -   react-hooks
--   Cypress
--   Deezer API
+-   Cypress (testing)
+-   Deezer API (api)
 
-## Start Project
+## Features:
+
+-   User Auth using Deezer-API authentication
+-   Listing a Genres Lists
+-   Listing the related artists for every genre
+
+## Getting started
 
 -   download/clone the project
 -   \$ cd deezer-app
 -   \$ yarn && yarn start
 -   open url: localhost:3000
 
-### Start test
+## Deploy
+
+You can open deployed version on Heroku
+https://deezer-app.herokuapp.com/
+
+### Start tests
 
 To start tests you have to replace `PrivateRoute` to `Route` in `src/components/App.js`
 // tests does not include login!

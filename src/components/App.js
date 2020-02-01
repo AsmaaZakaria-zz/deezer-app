@@ -13,8 +13,8 @@ const mapStateToProps = (state) => ({
 });
 
 const App = (props) => {
-    const [prevLocation, setPrevLocation] = useState(props.location);
     const { location } = props;
+    const [prevLocation, setPrevLocation] = useState(location);
 
     useEffect(() => {
         if (!(location.state && location.state.modal)) {
@@ -25,11 +25,14 @@ const App = (props) => {
     const isModal =
         location.state && location.state.modal && prevLocation !== location;
 
+    const isAuth =
+        props.currentUser.isSignedIn &&
+        props.currentUser.user &&
+        location.pathname !== "/";
+
     return (
         <div>
-            {props.currentUser.isSignedIn && props.currentUser.user && (
-                <NavMenu currentUser={props.currentUser.user} />
-            )}
+            {isAuth && <NavMenu currentUser={props.currentUser.user} />}
             <Switch location={isModal ? prevLocation : location}>
                 {/* PUBLIC ROUTE */}
                 <Route exact path="/" component={WelcomePage} />

@@ -17,10 +17,10 @@ const mapDispatchToProps = {
 const WelcomePage = (props) => {
     return (
         <StyledContainer>
-            <Header style={{ "line-height": "100px" }}>
-                <Header.Content style={{ "font-size": "4rem" }}>
+            <Header style={{ lineHeight: "100px" }}>
+                <Header.Content style={{ fontSize: "4rem" }}>
                     Hello there :)
-                    <Header.Subheader style={{ "font-size": "2rem" }}>
+                    <Header.Subheader style={{ fontSize: "2rem" }}>
                         Please login to continue
                     </Header.Subheader>
                 </Header.Content>

@@ -17,7 +17,7 @@ const StyledCard = styled(Card)`
     }
 `;
 
-const GenreCard = ({ genre, ...props }) => (
+const GenreCard = ({ genre }) => (
     <React.Fragment>
         <Link
             to={{

@@ -4,7 +4,7 @@ import { Item } from "semantic-ui-react";
 import { fetchGenreArtists } from "./../actions/fetchGenreArtists";
 import Loader from "./../../../components/Loader";
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     artists: state.genre.genreArtists,
 });
 

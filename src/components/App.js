@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import NavMenu from "./NavMenu";
+import NotFound from "./NotFound";
 import WelcomePage from "./WelcomePage";
 import GenresList from "../modules/genre/components/GenresList";
 import GenreArtistsList from "../modules/genre/components/GenreArtistsList";
@@ -43,6 +44,7 @@ const App = (props) => {
                     path="/genre/:id/artists"
                     component={GenreArtistsList}
                 />
+                <PrivateRoute exact path="*" component={NotFound} />
             </Switch>
             {isModal && (
                 <PrivateRoute

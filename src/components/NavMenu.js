@@ -19,20 +19,20 @@ const mapDispatchToProps = {
 };
 
 const NavMenu = (props) => (
-    <StyledMenu size="big" secondary>
+    <StyledMenu size="large" secondary>
         <Menu.Item>
             <Img src={Logo} alt="Deezer Logo" />
         </Menu.Item>
 
         <Menu.Menu position="right">
-            <Menu.Item style={{ "font-size": "20px", color: "#d35656" }}>
+            <Menu.Item style={{ fontSize: "20px", color: "#d35656" }}>
                 {props.currentUser.name}
             </Menu.Item>
             <Menu.Item>
                 <img
                     src={props.currentUser.picture_small}
                     alt="user img"
-                    style={{ "border-radius": "50%" }}
+                    style={{ borderRadius: "50%" }}
                 />
             </Menu.Item>
             <Menu.Item>

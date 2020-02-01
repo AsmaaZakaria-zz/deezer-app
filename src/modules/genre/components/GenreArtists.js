@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Item } from "semantic-ui-react";
 import { fetchGenreArtists } from "./../actions/fetchGenreArtists";
@@ -36,6 +37,13 @@ const GenreArtists = (props) => {
             ))}
         </Item.Group>
     );
+};
+
+GenreArtists.propTypes = {
+    id: PropTypes.string,
+    params: PropTypes.object,
+    artists: PropTypes.array.isRequired,
+    fetchGenreArtists: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenreArtists);

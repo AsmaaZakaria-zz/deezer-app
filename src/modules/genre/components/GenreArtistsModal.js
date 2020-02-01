@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button, Icon, Modal } from "semantic-ui-react";
 import { history } from "./../../../history";
 import GenreArtists from "./GenreArtists";
@@ -16,5 +17,9 @@ const GenreArtistsModal = (props) => (
         </Modal.Actions>
     </Modal>
 );
+
+GenreArtistsModal.propTypes = {
+    match: PropTypes.object.isRequired,
+};
 
 export default GenreArtistsModal;

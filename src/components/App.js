@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Switch, Route, withRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
@@ -55,6 +56,11 @@ const App = (props) => {
             )}
         </div>
     );
+};
+
+App.propTypes = {
+    currentUser: PropTypes.object,
+    location: PropTypes.object,
 };
 
 export default withRouter(connect(mapStateToProps, {})(App));

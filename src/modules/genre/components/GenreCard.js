@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Card, Image } from "semantic-ui-react";
 import styled from "styled-components";
@@ -37,5 +38,9 @@ const GenreCard = ({ genre }) => (
         </Link>
     </React.Fragment>
 );
+
+GenreCard.propTypes = {
+    genre: PropTypes.object.isRequired,
+};
 
 export default GenreCard;

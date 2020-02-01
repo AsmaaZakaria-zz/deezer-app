@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Loader from "./Loader";
@@ -21,5 +22,10 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => (
         }}
     />
 );
+
+PrivateRoute.propTypes = {
+    user: PropTypes.object.isRequired,
+    component: PropTypes.any.isRequired,
+};
 
 export default connect(mapStateToProps, {})(PrivateRoute);

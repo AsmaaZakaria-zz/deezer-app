@@ -1,10 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { Container, Button } from "semantic-ui-react";
 import styled from "styled-components";
 import { history } from "./../../../history";
 import Header from "./../../../components/Header";
-import { fetchGenreArtists } from "./../actions/fetchGenreArtists";
 import GenreArtists from "./GenreArtists";
 
 const StyledBtn = styled(Button)`
@@ -12,14 +11,6 @@ const StyledBtn = styled(Button)`
     bottom: 20px;
     right: 20px;
 `;
-
-const mapStateToProps = (state) => ({
-    artists: state.genre.genreArtists,
-});
-
-const mapDispatchToProps = {
-    fetchGenreArtists,
-};
 
 const GenreArtistsList = (props) => (
     <Container>
@@ -33,4 +24,8 @@ const GenreArtistsList = (props) => (
     </Container>
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(GenreArtistsList);
+GenreArtistsList.propTypes = {
+    match: PropTypes.object.isRequired,
+};
+
+export default GenreArtistsList;

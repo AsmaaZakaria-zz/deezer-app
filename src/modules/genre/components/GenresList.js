@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Container, Grid } from "semantic-ui-react";
 import GenreCard from "./GenreCard";
@@ -38,6 +39,11 @@ const GenresList = (props) => {
             <Grid>{renderGenreList()}</Grid>
         </Container>
     );
+};
+
+GenresList.propTypes = {
+    genres: PropTypes.array.isRequired,
+    fetchGenres: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

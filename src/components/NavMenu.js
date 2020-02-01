@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Button, Menu } from "semantic-ui-react";
 import styled from "styled-components";
@@ -43,5 +44,10 @@ const NavMenu = (props) => (
         </Menu.Menu>
     </StyledMenu>
 );
+
+NavMenu.propTypes = {
+    currentUser: PropTypes.object.isRequired,
+    userLogout: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(NavMenu);

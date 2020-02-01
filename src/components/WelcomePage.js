@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Container, Header, Button } from "semantic-ui-react";
 import styled from "styled-components";
@@ -35,6 +36,10 @@ const WelcomePage = (props) => {
             </Button>
         </StyledContainer>
     );
+};
+
+WelcomePage.propTypes = {
+    userLogin: PropTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(WelcomePage);

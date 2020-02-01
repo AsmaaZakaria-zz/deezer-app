@@ -44,6 +44,8 @@ To start tests you have to replace `PrivateRoute` to `Route` in `src/components/
 
 -   yarn test
 
+click `Run all specs` button
+
 ## Available routes
 
 -   `/` Welcome page, you have to login to continue
